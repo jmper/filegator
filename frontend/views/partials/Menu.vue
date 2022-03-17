@@ -1,32 +1,36 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item logo" @click="$router.push('/').catch(() => {})">
-        <img :src="this.$store.state.config.logo">
+      <a v-if="this.$store.state.config.logo || this.$store.state.config.title" class="navbar-item logo" @click="$router.push('/').catch(() => {})">
+        <img v-if="this.$store.state.config.logo" :src="this.$store.state.config.logo">
+        <span v-if="this.$store.state.config.title" style="font-size: 150%; font-weight: bold">{{ this.$store.state.config.title }}</span>
       </a>
 
-      <a :class="[navbarActive ? 'is-active' : '', 'navbar-burger burger']" role="button" aria-label="menu" aria-expanded="false" @click="navbarActive = !navbarActive">
+      <a v-if="!this.$store.state.config.disable_user_management" :class="[navbarActive ? 'is-active' : '', 'navbar-burger burger']" role="button" aria-label="menu" aria-expanded="false" @click="navbarActive = !navbarActive">
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
       </a>
     </div>
 
-    <div :class="[navbarActive ? 'is-active' : '', 'navbar-menu']">
+    <div v-if="!this.$store.state.config.disable_user_management" :class="[navbarActive ? 'is-active' : '', 'navbar-menu']">
       <div class="navbar-end">
-        <a v-if="is('admin')" class="navbar-item files" @click="$router.push('/').catch(() => {})">
+        <a v-if="is('admin') && !this.$store.state.config.disable_user_management" class="navbar-item files" @click="$router.push('/').catch(() => {})">
           {{ lang('Files') }}
         </a>
-        <a v-if="is('admin')" class="navbar-item users" @click="$router.push('/users').catch(() => {})">
+        <a v-if="is('admin') && !this.$store.state.config.disable_user_management" class="navbar-item users" @click="$router.push('/users').catch(() => {})">
           {{ lang('Users') }}
         </a>
-        <a v-if="is('guest')" class="navbar-item login" @click="login">
+        <a v-if="is('guest') && !this.$store.state.config.disable_user_management" class="navbar-item login" @click="login">
           {{ lang('Login') }}
         </a>
-        <a v-if="!is('guest')" class="navbar-item profile" @click="profile">
+        <a v-if="!is('guest') && !this.$store.state.config.disable_user_management" class="navbar-item profile" @click="profile">
           {{ this.$store.state.user.name }}
         </a>
-        <a v-if="!is('guest')" class="navbar-item logout" @click="logout">
+        <p v-if="!is('guest') && this.$store.state.config.disable_user_management" class="navbar-item">
+          {{ this.$store.state.user.name }}
+        </p>
+        <a v-if="!is('guest') && !this.$store.state.config.disable_user_management" class="navbar-item logout" @click="logout">
           {{ lang('Logout') }}
         </a>
       </div>
