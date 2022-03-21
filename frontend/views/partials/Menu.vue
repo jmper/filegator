@@ -101,7 +101,7 @@ export default {
 }
 @media all and (min-width: 1088px) {
   .navbar {
-    padding: 1rem 0;
+    padding: 5px;
   }
   .logo {
     padding: 0 0 0 12px;

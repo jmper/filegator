@@ -20,7 +20,7 @@ export default {
 @import "~bulma/sass/utilities/_all";
 
 // Primary color
-$primary: #34B891;
+$primary: #1e3968;
 $primary-invert: findColorInvert($primary);
 
 $colors: (
@@ -48,6 +48,14 @@ $fullhd-enabled: false;
 // Custom styles
 html, body, #wrapper, #inner, .container {
   height: 100%;
+}
+
+html {
+  background-color: #d5deed;
+}
+
+nav.navbar {
+  background-color: #7a94bf;
 }
 
 .container {
