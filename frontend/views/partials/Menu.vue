@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar" :class="this.$store.state.config.user_type" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a v-if="this.$store.state.config.logo || this.$store.state.config.title" class="navbar-item logo" @click="$router.push('/').catch(() => {})">
         <img v-if="this.$store.state.config.logo" :src="this.$store.state.config.logo">

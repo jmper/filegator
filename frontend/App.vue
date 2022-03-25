@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$store.state.initialized" id="wrapper">
+  <div v-if="$store.state.initialized" id="wrapper" :class="this.$store.state.config.user_type">
     <Login v-if="is('guest') && ! can('write') && ! can('read') && ! can('upload')" />
     <div v-else id="inner">
       <router-view />
@@ -13,14 +13,14 @@ import Login from './views/Login'
 export default {
   name: 'App',
   components: { Login }
-}
+    }
 </script>
 
 <style lang="scss">
 @import "~bulma/sass/utilities/_all";
 
 // Primary color
-$primary: #1e3968;
+$primary: #888;
 $primary-invert: findColorInvert($primary);
 
 $colors: (
@@ -50,12 +50,24 @@ html, body, #wrapper, #inner, .container {
   height: 100%;
 }
 
-html {
+#wrapper.admin {
   background-color: #d5deed;
 }
 
-nav.navbar {
+#wrapper.typist {
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+nav.admin {
   background-color: #7a94bf;
+}
+
+nav.typist {
+  background-color: #99cc33;
+}
+
+nav.typist a {
+  color: #fff;
 }
 
 .container {
