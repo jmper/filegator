@@ -61,11 +61,6 @@
                                             Development
                                         </a>
                                     </li>
-                                                                    <li class="">
-                                        <a href="https://docs.filegator.io/demo.html">
-                                            Demo
-                                        </a>
-                                    </li>
                                                             </ul>
                                                     <p class="text-muted">
                                 Configuration
@@ -130,8 +125,7 @@
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
                     <h2 id="filegator">FileGator</h2>
-<p><a href="https://demo.filegator.io"><img src="https://img.shields.io/badge/Live-Demo-brightgreen.svg?style=flat-square" alt="Live demo"></a>
-<a href="https://github.com/filegator/filegator/actions"><img src="https://github.com/filegator/filegator/workflows/PHP/badge.svg" alt="Build Status PHP"></a>
+<p><a href="https://github.com/filegator/filegator/actions"><img src="https://github.com/filegator/filegator/workflows/PHP/badge.svg" alt="Build Status PHP"></a>
 <a href="https://github.com/filegator/filegator/actions"><img src="https://github.com/filegator/filegator/workflows/Node/badge.svg" alt="Build Status Node"></a>
 <a href="https://codecov.io/gh/filegator/filegator"><img src="https://codecov.io/gh/filegator/filegator/branch/master/graph/badge.svg" alt="Code Coverage"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a></p>
@@ -154,6 +148,18 @@
 <li>No database required</li>
 <li>Framework free <a href="https://www.youtube.com/watch?v=L5jI9I03q8E">™</a></li>
 </ul>
+<h2 id="demo">Demo</h2>
+<p><a href="https://demo.filegator.io">https://demo.filegator.io</a></p>
+<p>This is read-only demo with guest account enabled</p>
+<ul>
+<li>you can log in as john/john to see John's private files</li>
+<li>or jane/jane as readonly + download user.</li>
+</ul>
+<h2 id="docker">Docker</h2>
+<p>Check out <a href="https://hub.docker.com/r/filegator/filegator">the official docker image</a> with instructions on how to use it</p>
+<p>Docker quick start:</p>
+<pre><code>docker run -p 8080:8080 -d filegator/filegator
+visit: http://127.0.0.1:8080 login as admin/admin123</code></pre>
 <h2 id="limitations">Limitations</h2>
 <ul>
 <li>Symlinks are not supported by the underlying <a href="https://flysystem.thephpleague.com/v1/docs/adapter/local/">Flysystem</a></li>

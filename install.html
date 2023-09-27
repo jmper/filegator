@@ -61,11 +61,6 @@
                                             Development
                                         </a>
                                     </li>
-                                                                    <li class="">
-                                        <a href="https://docs.filegator.io/demo.html">
-                                            Demo
-                                        </a>
-                                    </li>
                                                             </ul>
                                                     <p class="text-muted">
                                 Configuration
@@ -129,14 +124,18 @@
 
                 
                 <section class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <h2 id="minimum-requirements">Minimum Requirements</h2>
+                    <h2 id="docker">Docker</h2>
+<p>You can use the <a href="https://hub.docker.com/r/filegator/filegator">official docker image</a> based on <a href="https://github.com/filegator/filegator/blob/master/Dockerfile">this Dockerfile</a></p>
+<pre><code>docker run -p 8080:8080 -d filegator/filegator
+visit: http://127.0.0.1:8080 login as admin/admin123</code></pre>
+<h2 id="minimum-requirements">Minimum Requirements</h2>
 <ul>
 <li>PHP 7.2.5+ (with php-zip extension)</li>
 </ul>
 <h2 id="download-precompiled-build">Download precompiled build</h2>
 <p>Precompiled build is created for non-developers. In this version, the frontend (html, css and javascript) is compiled for you and the source code is removed so the final archive contains only minimum files.</p>
 <ul>
-<li>Download: <a href="https://github.com/filegator/static/raw/master/builds/filegator_latest.zip">latest release</a></li>
+<li>Download the <a href="https://github.com/filegator/static/raw/master/builds/filegator_latest.zip">latest release</a></li>
 <li>Unzip files and upload them to your PHP server</li>
 <li>Make sure your webserver can read and write to <code>filegator/repository/</code> and <code>filegator/private/</code> folders</li>
 <li>Set the website document root to <code>filegator/dist/</code> directory. This is also known as 'public' folder</li>
@@ -144,7 +143,7 @@
 <li>Login with default credentials <code>admin/admin123</code></li>
 <li>Change default admin's password</li>
 </ul>
-<p>NOTE: For security reasons <code>/dist</code> is the ONLY folder you want to be exposed through the web. Everything else should be outside of your web root, this way people can’t access any of your important files through the browser.</p>
+<p>NOTE: For security reasons <code>filegator/dist</code> is the ONLY folder you want to be exposed through the web. Everything else should be outside of your web root, this way people can’t access any of your important files through the browser. If you run the script from the root folder, you will see the message <strong>'Development mode'</strong> as a security warning.</p>
 <h2 id="install-on-fresh-ubuntu-1804-or-debian-103">Install on fresh Ubuntu 18.04 or Debian 10.3</h2>
 <p>On a new server (<a href="https://m.do.co/c/93994ebda78d">get $100 in server credits</a>) login as root and enter this into the shell:</p>
 <pre><code>apt update
@@ -174,12 +173,9 @@ exit</code></pre>
 <li>Please star this repository on <a href="https://github.com/filegator/filegator/stargazers">GitHub</a> if this project helped you!</li>
 <li>Become a backer or sponsor on <a href="https://www.patreon.com/alcalbg">Patreon</a>.</li>
 </ul>
-<h2 id="upgrade">Upgrade</h2>
-<p>Since version 7 is completely rewriten from scratch, there is no clear upgrade path from older versions.</p>
-<p>If you have an older version of FileGator please backup everything and install the script again.</p>
-<p>Upgrade instructions for non-developers:</p>
+<h2 id="upgrade-instructions">Upgrade instructions</h2>
 <ul>
-<li>Backup everythig</li>
+<li>Backup everything</li>
 <li>Download the latest version</li>
 <li>Replace all files and folders except <code>repository/</code> and <code>private/</code></li>
 </ul>
